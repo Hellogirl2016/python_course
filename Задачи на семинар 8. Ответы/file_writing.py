@@ -89,16 +89,15 @@ def read_file_selected(i):
         list1 = list(f_reader)
         res = []
         obj = {'Имя': list1[0], 'Фамилия': list1[1], 'Телефон': list1[2]}
-        n = list(enumerate(obj))
-        sorted = res.append(n[i])
+        sorted = res.append(obj[i])
         return sorted
 
-def write_file_selected(sorted):
+def write_file_selected(lst):
      with open(file_name_1, 'w', encoding='utf-8', newline='') as data:
     
         f_writer = DictWriter(data, fieldnames=['Имя', 'Фамилия', 'Телефон'])
         f_writer.writeheader()
-        f_writer.writerows(read_file_selected(nomer_stroki - 1))
+        f_writer.writerows(lst)
 
 
 def read_file(file_name):
